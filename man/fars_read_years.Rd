@@ -1,0 +1,29 @@
+\name{fars_read_years}
+\alias{fars_read_years}
+\title{Read years}
+\usage{
+  fars_read_years(years)
+}
+\arguments{
+  \item{years}{A vector of numbers, which represents the years to be analyzed.
+    Can be also a sequence of numbers. This function returns an error, if an
+    year number if invalid.}
+}
+\value{
+  A list with the data frames in tibble format for the selected years.
+  The list has the length of the input vector and each data frame contains
+  only the selected columns.
+}
+\description{
+  This function reads specific variables from the data.
+  It reads two specific columns, MONTH and year, from the input files, and
+  then stores them as data frames in a list. It works by calling the function
+  \code{make_filename} from within
+}
+\examples{
+  \dontrun{
+    fars_read_years(2013)
+    fars_read_years(c(2013,2014))
+    fars_read_years(2013:2015)
+  }
+}

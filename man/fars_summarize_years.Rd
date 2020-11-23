@@ -1,0 +1,25 @@
+\name{fars_summarize_years}
+\alias{fars_summarize_years}
+\title{Summarize years}
+\usage{
+  fars_summarize_years(years)
+}
+\arguments{
+  \item{years}{A vector of numbers, which represents the years to be analyzed.
+    Can be also a sequence of numbers.}
+}
+\value{
+  This function returns a data frame in tibble format with months as
+  rows and years as columns, in which the data are the counts of accidents.
+}
+\description{
+  This function summarizes the accidents by year and month for the data frames
+  imported. It calls the function \code{fars_read_years} from within.
+}
+\examples{
+  \dontrun{
+    fars_summarize_years(2013)
+    fars_summarize_years(c(2013,2014))
+    fars_summarize_years(2013:2015)
+  }
+}
