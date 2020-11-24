@@ -8,19 +8,13 @@ fars_read <- function(filename) {
 }
 
 
-
+#'La funcion crea el nombre del archivo, cambia el año por un entero y se agrega a una cadena
 #' Name file
 #'
-#' This function makes a file name.
-#' First, the inputted year will be converted to an integer. The value must be
-#' a simple year without quotes.
-#' Second, the year will be added to the middle of a string that represents the
-#' main pattern of the file name, in the placeholder for an integer.
+#' @param year 
 #'
-#' @param year A number representing the desired year.
-#'
-#' @return This function returns a character vector with a combination of the
-#' main string and the year inputted.
+#' @return
+#' devuelve un vector de caracteres
 #'
 #' @examples
 #' \dontrun{
@@ -36,21 +30,16 @@ make_filename <- function(year) {
 
 
 
-#' Read years
-#'
-#' This function reads specific variables from the data.
-#' It reads two specific columns, MONTH and year, from the input files, and
-#' then stores them as data frames in a list. It works by calling the function
+#'la funcion lee los datos, mes y año del archivo de entrada y despues almacena los datos en una lista
 #' \code{make_filename} from within
 #'
-#' @param years A vector of numbers, which represents the years to be analyzed.
-#' Can be also a sequence of numbers. This function returns an error, if an
-#' year number if invalid.
+#' @param years 
+#' vector numerico de los años analizados
+#' 
 #'
-#' @return A list with the data frames in tibble format for the selected years.
-#' The list has the length of the input vector and each data frame contains
-#' only the selected columns.
-#'
+#' @return 
+#' devuelve una lista de los años seleccinados que contiene el mes y el año
+
 #' @examples
 #' \dontrun{
 #' fars_read_years(2013)
@@ -80,16 +69,15 @@ fars_read_years <- function(years) {
 
 
 
-#' Summarize years
+
+#' 
+#' la funcion guarda los accidentes de cada año y cada mes
 #'
-#' This function summarizes the accidents by year and month for the data frames
-#' imported. It calls the function \code{fars_read_years} from within.
+#' @param years
 #'
-#' @param years A vector of numbers, which represents the years to be analyzed.
-#' Can be also a sequence of numbers.
+#' @return 
+#'devuelve los meses como filas y los años como columnas y cada celda es el numero de accidentes en el mes y el año que corresponda
 #'
-#' @return This function returns a data frame in tibble format with months as
-#' rows and years as columns, in which the data are the counts of accidents.
 #'
 #' @examples
 #' \dontrun{
@@ -115,18 +103,17 @@ fars_summarize_years <- function(years) {
 
 
 
-#' Plot map
-#'
-#' This function plots a map with the locations of accidents for the selected
-#' state and year.It calls the functions \code{make_filename} and
+#' la funcion traza un mapa con la ubicadion de cada accidente
+#' 
 #' \code{fars_read} from within. T
 #'
-#' @param state.num A number representing the FARS code of the desired state.
-#' This function returns an error, if the state number if invalid.
-#' @param year A number representing the desired year.
+#' @param state.num 
+#' da el codigo FARS
+#' 
+#' @param year 
 #'
-#' @return This function returns a map with the locations of accidents for
-#' the selected state and year.
+#' @return 
+#' devuelve un mapa con las ubicaciones de los accidentes
 #'
 #' @examples
 #' \dontrun{
